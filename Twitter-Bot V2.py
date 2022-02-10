@@ -1,24 +1,20 @@
 import tweepy
 import sys
-import datetime 
+import tweeterid
+from API_Keys import consumer_key, consumer_secret, access_token, access_token_secret
 
 search_hashtag = '#twitter'
 search_user = '@twitter'
-
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-def Errors(reason):
+def Errors(reason, user_of_tweet):
     appendFile = open('Twitter Errors.txt','a')
-    appendFile.write(str(reason))
-    appendFile.write(' date of error -> ')
-    appendFile.write(str(datetime.datetime.now()))
+    appendFile.write('### Error ###' + '\n')
+    appendFile.write('Error: ' + str(reason) + '\n' + '\n')
+    appendFile.write('User: ' + user_of_tweet + '\n' + '\n')
     appendFile.close()
 
 def retweet(target):
@@ -26,10 +22,10 @@ def retweet(target):
         try:
             tweet.retweet()
         except tweepy.TweepyException as reason:
-            Errors(reason)
+            user_of_tweet = tweeterid.id_to_handle(tweet.user.id)
+            Errors(reason, user_of_tweet)
             break
         except StopIteration:
-        # only put something here if you intend to break the 25 rate limit (Twitter rate limit is 15 requests per 15 minutes)
             break
     else:
         sys.exit()
