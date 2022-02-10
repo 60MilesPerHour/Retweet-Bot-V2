@@ -1,8 +1,17 @@
 # Retweet-Bot-V2
-This is the new version of Retweet-Bot, it is designed for dual functionality of now being able to retweet hashtags and @mentions whilst also being designed to run completely headless.
 
 <a class="copyrighted-badge" title="Copyrighted.com Registered &amp; Protected" target="_blank" href="https://www.copyrighted.com/work/2zEXnpxBAt43Lzzo"><img alt="Copyrighted.com Registered &amp; Protected" border="0" width="125" height="25" srcset="https://static.copyrighted.com/badges/125x25/03_2_2x.png 2x" src="https://static.copyrighted.com/badges/125x25/03_2.png" /></a>
 
+This is the new version of Retweet-Bot, it is designed for dual functionality of now being able to retweet hashtags and @mentions whilst also being designed to run completely headless. You will also need an API_Keys.py file with your Twitter API keys in the tweepy format (see below for example).
+
+## API_keys.py file
+```bash
+### Name of Account ###
+# consumer_key = ''
+# consumer_secret = ''
+# access_token = ''
+# access_token_secret = ''
+```
 ## Tweepy Installation
 
 Use the package manager [pip3](https://pypi.org/project/tweepy/) to install Tweepy.
